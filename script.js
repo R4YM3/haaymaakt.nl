@@ -96,6 +96,24 @@ document.getElementById('footer-year').textContent = `© ${new Date().getFullYea
   dropIn('werkwijze-grid');
   dropIn('waarom-lijst', { animation: 'haay-slide-in', duration: 520, stagger: 160, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', threshold: 0.35 });
 
+  document.querySelectorAll('#reviews [data-sterren]').forEach((row, rowIndex) => {
+    const stars = Array.from(row.children);
+    if (!stars.length) return;
+    stars.forEach((s) => { s.style.opacity = '0'; s.style.transformOrigin = '50% 50%'; });
+
+    const play = () => stars.forEach((s, i) => {
+      const delay = rowIndex * 140 + i * 90;
+      s.style.animation = `haay-star-pop 460ms cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}ms both`;
+      s.addEventListener('animationend', () => { s.style.animation = ''; s.style.opacity = ''; s.style.transform = ''; }, { once: true });
+    });
+
+    if (!('IntersectionObserver' in window)) { play(); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { play(); io.disconnect(); }
+    }, { threshold: 0.6 });
+    io.observe(row);
+  });
+
   const heading = document.getElementById('over-titel');
   const word = document.getElementById('haay-woord');
   if (heading && word) {
