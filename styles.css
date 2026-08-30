@@ -136,7 +136,6 @@ img { max-width: 100%; display: block; }
 @media (max-width: 639px) {
   .call-tablet { display: none; }
   .btn-call { width: 46px; height: 46px; padding: 0; gap: 0; }
-  .intro { padding-top: 48px; padding-bottom: 48px; }
 }
 
 /* ===== Layout helpers ===== */
@@ -164,6 +163,9 @@ h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px
 .intro { max-width: var(--content-max); margin: 0 auto; padding: 80px 24px; }
 .intro-inner { max-width: 780px; display: flex; flex-direction: column; gap: 16px; }
 .intro h2 { margin: 0; }
+@media (max-width: 639px) {
+  .intro { padding-top: 48px; padding-bottom: 48px; }
+}
 
 /* ===== Stats ===== */
 .stats { background: var(--color-surface); overflow: hidden; }
