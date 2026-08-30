@@ -141,6 +141,27 @@ document.getElementById('footer-year').textContent = `© ${new Date().getFullYea
     }, 600);
   }
 
+  const contactPanel = document.getElementById('contact-panel');
+  if (contactPanel) {
+    contactPanel.style.opacity = '0';
+    const playContactPanel = () => {
+      contactPanel.style.animation = 'haay-rise-in 700ms cubic-bezier(0.16, 0.9, 0.28, 1) both';
+      contactPanel.addEventListener('animationend', () => {
+        contactPanel.style.animation = '';
+        contactPanel.style.opacity = '';
+        contactPanel.style.transform = '';
+      }, { once: true });
+    };
+    if (!('IntersectionObserver' in window)) {
+      playContactPanel();
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { playContactPanel(); io.disconnect(); }
+      }, { threshold: 0.25 });
+      io.observe(contactPanel);
+    }
+  }
+
   const parallaxGrid = document.getElementById('diensten-grid');
   if (parallaxGrid) {
     const cards = Array.from(parallaxGrid.children);
