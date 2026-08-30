@@ -93,7 +93,7 @@ document.getElementById('footer-year').textContent = `© ${new Date().getFullYea
   }
 
   dropIn('cijfers-grid');
-  dropIn('werkwijze-grid');
+  dropIn('werkwijze-grid', { animation: 'haay-rise-in' });
   dropIn('waarom-lijst', { animation: 'haay-slide-in', duration: 520, stagger: 160, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', threshold: 0.35 });
 
   document.querySelectorAll('#reviews [data-sterren]').forEach((row, rowIndex) => {
@@ -131,6 +131,14 @@ document.getElementById('footer-year').textContent = `© ${new Date().getFullYea
       }, { threshold: 0.6 });
       io.observe(heading);
     }
+  }
+
+  const headerWord = document.getElementById('header-haay-woord');
+  if (headerWord) {
+    setTimeout(() => {
+      headerWord.style.animation = 'haay-wave 1100ms ease-in-out both';
+      headerWord.addEventListener('animationend', () => { headerWord.style.animation = ''; headerWord.style.transform = ''; }, { once: true });
+    }, 600);
   }
 
   const parallaxGrid = document.getElementById('diensten-grid');
