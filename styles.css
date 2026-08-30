@@ -137,7 +137,9 @@ h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px
 .stat-label { font-size: 16px; font-weight: 600; color: var(--color-text-muted); margin-top: 12px; }
 
 /* ===== Services / Process ===== */
-.services, .process { max-width: var(--content-max); margin: 0 auto; padding: 48px 24px 80px; scroll-margin-top: 90px; }
+.services { max-width: var(--content-max); margin: 0 auto; padding: 48px 24px 80px; scroll-margin-top: 90px; }
+.process { background: var(--color-surface); scroll-margin-top: 90px; }
+.process-inner { max-width: var(--content-max); margin: 0 auto; padding: 48px 24px 80px; }
 .service-card, .process-card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 32px 28px; min-height: 220px; }
 .service-card h3, .process-card h3 { font-size: 22px; font-weight: 700; margin: 0 0 10px; }
 .service-card p, .process-card p { font-size: 16px; line-height: 1.55; color: var(--color-text-muted); }
@@ -215,10 +217,7 @@ h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px
 .area-card h2 { font-size: clamp(23px, 4.5vw, 32px); margin: 14px 0 14px; }
 .area-card p { font-size: 17px; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 24px; }
 .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
-.chip { color: #fff; font-weight: 700; font-size: 14px; padding: 8px 16px; border-radius: var(--radius-md); }
-.chip-purple { background: var(--color-petrol); }
-.chip-pink { background: var(--color-ochre); }
-.chip-red { background: var(--color-primary); }
+.chip { background: var(--color-surface); color: var(--color-text-muted); font-weight: 700; font-size: 14px; padding: 8px 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
 
 /* ===== Contact ===== */
 .contact { max-width: var(--content-max); margin: 0 auto; padding: 80px 24px; scroll-margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; }
