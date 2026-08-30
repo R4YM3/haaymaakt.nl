@@ -18,10 +18,39 @@
   --radius-md: 6px;
   --radius-lg: 10px;
   --font-body: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Zilla Slab", Georgia, serif;
+  --font-display: "Zilla Slab", Rockwell, Georgia, serif;
   --content-max: 1200px;
   --focus-ring: 0 0 0 3px rgba(163, 4, 124, 0.3);
   color-scheme: light;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: optional;
+  src: url("/fonts/work-sans-var.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Zilla Slab";
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url("/fonts/zilla-slab-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Zilla Slab";
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url("/fonts/zilla-slab-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Zilla Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url("/fonts/zilla-slab-700.woff2") format("woff2");
 }
 
 * { box-sizing: border-box; }
@@ -254,7 +283,7 @@ h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px
 .partner-copy { background: var(--color-petrol); color: #fff; padding: clamp(40px, 6vw, 56px) clamp(28px, 4vw, 48px); }
 .partner-copy h2 { color: #fff; }
 .partner-copy p { font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.97); margin: 0 0 28px; }
-.partner-photo { background-image: url('/images/werk-zeist.jpg'); background-image: image-set(url('/images/werk-zeist.webp') type('image/webp'), url('/images/werk-zeist.jpg') type('image/jpeg')); background-size: cover; background-position: center; min-height: 320px; }
+.partner-photo { background-image: url('/images/werk-zeist-700.jpg'); background-image: image-set(url('/images/werk-zeist-700.webp') type('image/webp'), url('/images/werk-zeist-700.jpg') type('image/jpeg')); background-size: cover; background-position: center; min-height: 320px; }
 
 /* ===== Werkgebied ===== */
 .area { position: relative; background: var(--color-surface-map); overflow: hidden; }
