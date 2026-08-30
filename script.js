@@ -65,3 +65,73 @@ document.getElementById('footer-year').textContent = `© ${new Date().getFullYea
       });
   });
 })();
+
+(function () {
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function dropIn(gridId, opts) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    const o = Object.assign(
+      { animation: 'haay-drop-in', duration: 900, stagger: 110, easing: 'cubic-bezier(0.16, 0.9, 0.28, 1)', threshold: 0.25 },
+      opts || {}
+    );
+    const cards = Array.from(grid.children);
+    if (!cards.length) return;
+    cards.forEach((c) => { c.style.opacity = '0'; c.style.willChange = 'transform, opacity'; });
+
+    const play = () => cards.forEach((c, i) => {
+      c.style.animation = `${o.animation} ${o.duration}ms ${o.easing} ${i * o.stagger}ms both`;
+      c.addEventListener('animationend', () => { c.style.willChange = ''; }, { once: true });
+    });
+
+    if (!('IntersectionObserver' in window)) { play(); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { play(); io.disconnect(); }
+    }, { threshold: o.threshold });
+    io.observe(grid);
+  }
+
+  dropIn('cijfers-grid');
+  dropIn('werkwijze-grid');
+  dropIn('waarom-lijst', { animation: 'haay-slide-in', duration: 520, stagger: 160, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', threshold: 0.35 });
+
+  const heading = document.getElementById('over-titel');
+  const word = document.getElementById('haay-woord');
+  if (heading && word) {
+    heading.style.opacity = '0';
+    const playGreeting = () => {
+      heading.style.animation = 'haay-fade-up 520ms cubic-bezier(0.22, 1, 0.36, 1) both';
+      word.style.animation = 'haay-wave 1100ms ease-in-out 420ms both';
+      word.addEventListener('animationend', () => { word.style.animation = ''; word.style.transform = ''; }, { once: true });
+    };
+    if (!('IntersectionObserver' in window)) {
+      playGreeting();
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { playGreeting(); io.disconnect(); }
+      }, { threshold: 0.6 });
+      io.observe(heading);
+    }
+  }
+
+  const parallaxGrid = document.getElementById('diensten-grid');
+  if (parallaxGrid) {
+    const cards = Array.from(parallaxGrid.children);
+    const depths = cards.map((_, i) => [1, 0.55, 0.15][i % 3]);
+    cards.forEach((c) => { c.style.willChange = 'transform'; });
+    let raf = null;
+    const update = () => {
+      raf = null;
+      const r = parallaxGrid.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const progress = Math.max(0, Math.min(1, (vh - r.top) / (vh + r.height)));
+      const shift = (0.5 - progress) * 150;
+      cards.forEach((c, i) => { c.style.transform = `translate3d(0, ${(shift * depths[i]).toFixed(2)}px, 0)`; });
+    };
+    window.addEventListener('scroll', () => { if (raf == null) raf = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+})();
