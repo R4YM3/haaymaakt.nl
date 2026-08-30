@@ -145,7 +145,7 @@ img { max-width: 100%; display: block; }
 section > .eyebrow, .services > h2, .process > h2 { max-width: var(--content-max); }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-primary); }
 .eyebrow-icon { color: var(--color-petrol); letter-spacing: 0.04em; margin-bottom: 20px; }
-.eyebrow-on-dark { color: rgba(255, 255, 255, 0.75); }
+.eyebrow-on-dark { color: rgba(255, 255, 255, 0.95); }
 h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px; }
 .lead { font-size: 18px; line-height: 1.6; color: var(--color-text-muted); }
 .muted { color: var(--color-text-muted); font-size: 18px; line-height: 1.6; }
@@ -253,7 +253,7 @@ h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px
 .partner-grid { max-width: var(--content-max); margin: 0 auto; padding: 80px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); align-items: stretch; border-radius: var(--radius-md); overflow: hidden; }
 .partner-copy { background: var(--color-petrol); color: #fff; padding: clamp(40px, 6vw, 56px) clamp(28px, 4vw, 48px); }
 .partner-copy h2 { color: #fff; }
-.partner-copy p { font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.9); margin: 0 0 28px; }
+.partner-copy p { font-size: 18px; line-height: 1.6; color: rgba(255, 255, 255, 0.97); margin: 0 0 28px; }
 .partner-photo { background-image: url('/images/werk-zeist.jpg'); background-image: image-set(url('/images/werk-zeist.webp') type('image/webp'), url('/images/werk-zeist.jpg') type('image/jpeg')); background-size: cover; background-position: center; min-height: 320px; }
 
 /* ===== Werkgebied ===== */
@@ -264,7 +264,7 @@ h2 { font-size: clamp(24px, 4.5vw, 34px); line-height: 1.15; margin: 16px 0 20px
 .area-card h2 { font-size: clamp(23px, 4.5vw, 32px); margin: 14px 0 14px; }
 .area-card p { font-size: 17px; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 24px; }
 .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
-.chip { background: var(--color-surface); color: var(--color-text-muted); font-weight: 700; font-size: 14px; padding: 8px 16px; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+.chip { background: var(--color-surface); color: var(--color-text-muted); font-weight: 700; font-size: 14px; padding: 8px 16px; border-radius: var(--radius-md); }
 
 /* ===== Contact ===== */
 .contact { max-width: var(--content-max); margin: 0 auto; padding: 80px 24px; scroll-margin-top: 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; overflow: hidden; }
