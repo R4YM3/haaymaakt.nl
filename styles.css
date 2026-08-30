@@ -90,7 +90,7 @@ img { max-width: 100%; display: block; }
   max-width: var(--content-max); margin: 0 auto; padding: 14px 24px;
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
-@media (min-width: 1040px) {
+@media (min-width: 1200px) {
   .site-header .row { padding-right: 0; }
 }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--color-text); }
